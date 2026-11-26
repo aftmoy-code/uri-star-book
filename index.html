@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>הכוכב של אורי - הבטאמו יוסף</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Varela+Round&display=swap">
+<style>
+:root{--bg:#d6ebff;--paper:#fffaf0;--ink:#232a55;--mut:#5b6290;--btn:#232a55;--btnt:#fff;--edge:rgba(35,42,85,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11153a;--paper:#1d2250;--ink:#f3f0ff;--mut:#aeb4e6;--btn:#ffd45a;--btnt:#232a55;--edge:rgba(255,255,255,.18)}}
+:root[data-theme="dark"]{--bg:#11153a;--paper:#1d2250;--ink:#f3f0ff;--mut:#aeb4e6;--btn:#ffd45a;--btnt:#232a55;--edge:rgba(255,255,255,.18)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;margin:0;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);color:var(--ink);font:400 1.1rem/1.6 "Varela Round","Arial Hebrew",Arial,sans-serif}
+.stage{touch-action:pan-y;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:12px}
+.book{perspective:2600px}
+.w{--P:min(calc(50vw - 28px),calc(100vh - 150px),540px)}
+.n{--P:min(calc(100vw - 28px),calc((100vh - 150px)/1.55),460px)}
+.bk{position:relative;transform-style:preserve-3d;transition:transform .8s ease}
+.w .bk{width:calc(var(--P)*2);height:var(--P)}
+.w .bk.cl{transform:translateX(calc(var(--P)/2))}
+.n .bk{width:var(--P);height:calc(var(--P)*1.55)}
+.lf{position:absolute;top:0;left:0;height:100%;transform-style:preserve-3d;transform-origin:right center;transition:transform .8s cubic-bezier(.4,0,.2,1);will-change:transform}
+.lf.hd{visibility:hidden;will-change:auto}
+.bk::before{content:"";position:absolute;inset:0;border-radius:14px;box-shadow:0 8px 24px rgba(20,25,70,.22);transform:translateZ(-1px);transition:right .8s ease}
+.w .bk.cl::before{right:50%}
+.n .bf{transform:rotateY(180deg);border-radius:14px}
+.w .lf{width:50%}.n .lf{width:100%}
+.lf.fl{transform:rotateY(180deg)}
+.nx,.nx *{transition:none!important}
+.fc{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper)}
+.w .bf{transform:rotateY(180deg);border-radius:0 12px 12px 0}
+.w .ff{border-radius:12px 0 0 12px}.n .ff{border-radius:14px}
+.fc::after{content:"";position:absolute;top:0;bottom:0;width:14%;pointer-events:none}
+.ff::after{right:0;background:linear-gradient(to left,rgba(0,0,0,.16),transparent)}
+.bf::after{left:0;background:linear-gradient(to right,rgba(0,0,0,.16),transparent)}
+.im{position:relative;flex:none;width:100%;aspect-ratio:1}
+.im img{display:block;width:100%;height:100%;object-fit:cover}
+.tx{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6% 9% 9%}
+.tx p{margin:0;max-width:34ch;font-size:calc(var(--P)*.05);line-height:1.75}
+.n .tx p{line-height:1.6}
+.no{position:absolute;bottom:2.5%;left:7%;font-size:calc(var(--P)*.035);color:var(--mut)}
+.cover,.cvb{background:#f9f3e3;color:#232a55}
+.im h1{position:absolute;top:3%;left:0;right:0;margin:0;text-align:center;font:400 calc(var(--P)*.105)/1.1 "Secular One",Arial,sans-serif;color:#232a55}
+.im .by{position:absolute;top:15%;left:0;right:0;margin:0;text-align:center;font-size:calc(var(--P)*.045);color:#232a55}
+.w .cvb{position:absolute;left:0;right:0;bottom:0;flex:none;padding:0 0 1.5%}
+.w .cvb button{display:none}
+.ni{text-align:center;gap:calc(var(--P)*.025);color:#fff;background:radial-gradient(circle at 18% 22%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 82% 16%,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle at 74% 80%,#fff 0 1px,transparent 2px),linear-gradient(#232a55,#3f4590)}
+.ni h2{margin:0;font:400 calc(var(--P)*.075)/1.1 "Secular One",Arial,sans-serif}
+.ni p{font-size:calc(var(--P)*.04);line-height:1.6}
+.ni .msg{color:#ffd45a}
+.bs svg{display:block;width:calc(var(--P)*.3);filter:drop-shadow(0 0 14px rgba(255,212,90,.8))}
+.cta{margin-top:.4em;padding:.6em 1.6em;font:inherit;font-size:calc(var(--P)*.045);border:0;border-radius:999px;background:#ffd45a;color:#232a55;cursor:pointer}
+button:focus-visible{outline:3px solid #f2a81d;outline-offset:3px}
+.bar{display:flex;align-items:center;gap:14px;width:100%;max-width:1040px;margin:0 auto;padding:8px 16px 14px}
+.bar button{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:var(--btn);color:var(--btnt);display:grid;place-items:center;cursor:pointer}
+.bar button:disabled{opacity:.3;cursor:default}
+.bar svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.mid{flex:1;text-align:center;font-size:.95rem;color:var(--mut)}
+.pg{height:6px;margin-top:6px;border-radius:3px;background:var(--edge);overflow:hidden}
+#fill{display:block;height:100%;width:0;background:#f2a81d;transition:width .3s}
+@media(prefers-reduced-motion:reduce){.lf,.bk,.bk::before,#fill{transition:none}}
+</style>
+</head>
+<body>
+<main class="stage"><div class="book" id="book"><div class="bk" id="bk"></div></div></main>
+<nav class="bar" aria-label="דפדוף">
+<button id="prev" aria-label="העמוד הקודם"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+<div class="mid"><span id="lbl"></span><div class="pg"><i id="fill"></i></div></div>
+<button id="next" aria-label="העמוד הבא"><svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg></button>
+</nav>
+<script>
+const IM={0:"cover.jpg",1:"page-01.jpg",2:"page-02.jpg",3:"page-03.jpg",4:"page-04.jpg",5:"page-05.jpg",6:"page-06.jpg",7:"page-07.jpg",8:"page-08.jpg",9:"page-09.jpg",10:"page-10.jpg",11:"page-11.jpg",12:"page-12.jpg",13:"page-13.jpg",14:"page-14.jpg",15:"page-15.jpg",16:"page-16.jpg",17:"page-17.jpg",18:"page-18.jpg"};
+const T=["בחדר קטן ומלא צעצועים גר ילד סקרן בשם אורי. בידו הימנית החזיק אבן זוהרת קטנה שמצא ליד השביל, והוא אהב אותה מאוד.", "אורי אהב לזרוק את האבן באוויר ולתפוס אותה, כאילו היא כוכב קטן משלו. הוא תמיד רצה להיות ראשון בכל משחק ולהראות לכולם שהוא הכי מהיר.", "באותו יום הגיעה לשכונה ילדה חדשה בשם נעה, והיא דיברה במילים קצת אחרות והלכה בצעדים מהירים ומדלגים.", "כמה ילדים עמדו בצד והסתכלו על נעה בהפתעה. אורי לחש: “היא לא כמונו. אולי היא לא יודעת לשחק את המשחקים שלנו?”", "נעה עמדה ליד הגדר וחיכתה שמישהו יחייך אליה. אף אחד לא ניגש, והיא הרגישה שמישהו שם חומה קטנה בינה לבין החצר.", "אורי רצה להראות לילדים שהוא הכי מצחיק ואמיץ. הוא לקח את האבן הזוהרת, עלה על נדנדה גבוהה והתחיל לזרוק אותה גבוה-גבוה.", "אורי לא עצר לחשוב לאן האבן תעוף ומה יש מאחורי הנדנדה. הוא רק רצה שתצא לו זריקה יפה ומהירה.", "האבן עפה מעבר לשיחים, פגעה בקופסת עץ ישנה והפילה אותה ישר לתוך שלולית עמוקה. המים השפריצו לכל עבר, והקופסה נרטבה כולה.", "בקופסה היו קלפים מצוירים של כל הילדים, והם התפזרו בבוץ. כולם השתתקו והסתכלו על השלולית בעצב.", "אורי ירד מהנדנדה והרגיש שהבטן שלו מתכווצת. הוא מיהר לזרוק בלי לחשוב מה יקרה רגע אחרי, ועכשיו המשחק נעצר.", "נעה ניגשה בשקט אל השלולית. היא הסתכלה על הקלפים, מצאה מקל ארוך ודק, והתחילה למשוך אותם בזהירות החוצה בלי להחליק.", "היא סידרה את הקלפים על ספסל יבש ושטפה בעדינות את הבוץ מהקצוות. הילדים הסתכלו עליה ולא האמינו כמה היא עדינה ומדויקת.", "אורי ניגש לנעה, הוריד את הראש ואמר: “סליחה שלא הזמנתי אותך לשחק קודם. ותודה שעזרת להציל את הקלפים אחרי שזרקתי בלי לחשוב”.", "נעה חייכה חיוך גדול ואמרה: “לכל אחד יש דרך מיוחדת לראות דברים. כשאנחנו מקשיבים אחד לשני, קל יותר לפתור בעיות”.", "מאותו יום, כשמישהו חדש הגיע לחצר, אורי וחבריו כבר לא מיהרו לשפוט. הם הזמינו אותו להצטרף וגילו חברים נפלאים חדשים.", "ואורי למד כלל פשוט שמלווה אותו עד היום: לפני שעושים צעד גדול או משחקים במשהו חדש, עוצרים רגע וחושבים מה יכול לקרות.", "בחצר של השכונה משחקים עכשיו יחד ילדים ותיקים וחדשים, וכל אחד מביא איתו רעיון אחר, קצב אחר וחיוך אחר.", "וכשמשהו מתפקשש, הם לא מאשימים ולא ממהרים לכעוס. הם עוצרים, מדברים, וחושבים יחד איך לתקן."],A=["אורי יושב בחדר ומביט באבן הזוהרת", "אורי מקפיץ את האבן בחצר השכונה", "נעה נכנסת בשער החצר והילדים מסתכלים", "אורי לוחש לחבריו על נעה שעומדת לבד", "נעה עומדת לבד ליד הגדר", "אורי עומד גבוה על נדנדה ומניף את האבן", "אורי משחרר את האבן בלי להסתכל לאן", "האבן פוגעת בקופסה והיא נופלת לשלולית", "הקלפים מפוזרים בבוץ והילדים מסביב", "אורי עומד עצוב ליד השלולית", "נעה מחלצת קלפים מהשלולית בעזרת מקל", "נעה מנקה ומסדרת את הקלפים על ספסל", "אורי מושיט לנעה את האבן ומתנצל", "אורי ונעה יושבים יחד על הספסל ומדברים", "כל הילדים מקבלים בחיוך ילד חדש בשער", "אורי עוצר לרגע וחושב לפני שמשחק", "ילדים משחקים ויוצרים יחד בחצר", "הילדים יושבים במעגל בשקיעה סביב האבן הזוהרת"],BL=`<p>בחצר השכונה של אורי לכל דבר יש קצב מוכר – עד שמגיעה נעה, ילדה חדשה עם דרך אחרת לדבר ולנוע, ואבן כוכב זוהרת אחת שמתעופפת גבוה מדי בלי מחשבה תחילה.</p><p>סיפור חם ומרגש על הכוח לעצור רגע לפני שפועלים, על האומץ לבקש סליחה, ועל היופי שמתגלה כשפותחים את הלב ומקבלים כל חבר בדיוק כפי שהוא.</p><p class="msg">מסר מרכזי: הכלה וקבלה של האחר, וסוף מעשה במחשבה תחילה.</p>`;
+const STAR='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7z" fill="#ffd45a" stroke="#f2a81d" stroke-width="1" stroke-linejoin="round"/></svg>';
+const $=id=>document.getElementById(id),book=$("book"),bk=$("bk"),mq=matchMedia("(min-width:700px)"),LAST=19;
+let st=0,wide=true,L=[],tz,ct;
+const face=(h,c)=>`<div class="fc ${c}">${h}</div>`;
+const img=k=>`<div class="im"><img src="${IM[k]}" alt="${A[k-1]}"></div>`;
+const tx=k=>`<div class="tx"><p>${T[k-1]}</p><span class="no">${k}</span></div>`;
+const cov=`<div class="im"><img src="${IM[0]}" alt="אורי ונעה מחזיקים ידיים ומביטים בכוכב זוהר"><h1>הכוכב של אורי</h1><p class="by">מאת הבטאמו יוסף</p></div><div class="tx cvb"><button class="cta" onclick="go(1)">פתחו את הספר</button></div>`;
+const blurb=b=>`<div class="tx ni"><h2>על הספר</h2>${BL}${b?'<button class="cta" onclick="go(0)">לקרוא שוב</button>':""}</div>`;
+const end=`<div class="tx ni"><div class="bs">${STAR}</div><h2>סוף</h2><button class="cta" onclick="go(0)">לקרוא שוב</button></div>`;
+function leaves(){
+L=[[face(cov,"ff cover")]];
+if(wide){L[0].push(face(img(1),"bf"));for(let j=1;j<=18;j++)L.push([face(tx(j),"ff"),j<18?face(img(j+1),"bf"):face(blurb(0),"bf")]);L.push([face(end,"ff")])}
+else{for(let j=1;j<=18;j++)L.push([face(img(j)+tx(j),"ff")]);L.push([face(blurb(1),"ff")]);L.forEach(l=>l.push(face("","bf")))}}
+function z(){[...bk.children].forEach((e,j)=>e.style.zIndex=j<st?j+1:L.length-j)}
+function cull(){[...bk.children].forEach((e,j)=>e.classList.toggle("hd",j<(wide?st-2:st)||j>st+1))}
+function render(){
+[...bk.children].forEach((e,j)=>{const f=j<st;if(e.classList.contains("fl")!=f){e.style.zIndex=99;e.classList.toggle("fl",f)}if(j>=st-3&&j<=st+2)e.classList.remove("hd")});
+clearTimeout(tz);tz=setTimeout(z,850);clearTimeout(ct);ct=setTimeout(cull,900);
+bk.classList.toggle("cl",wide&&st==0);
+$("lbl").textContent=st==0?"כריכה":st==LAST?"כריכה אחורית":`עמוד ${st} מתוך 18`;
+$("fill").style.width=(st/LAST*100)+"%";
+$("prev").disabled=st==0;$("next").disabled=st==LAST}
+function build(){
+wide=mq.matches;book.className="book "+(wide?"w":"n");leaves();bk.classList.add("nx");
+bk.innerHTML=L.map(f=>`<div class="lf">${f.join("")}</div>`).join("");
+render();z();cull();bk.querySelectorAll("img").forEach(i=>{i.decoding="async";i.decode&&i.decode().catch(()=>{})});requestAnimationFrame(()=>requestAnimationFrame(()=>bk.classList.remove("nx")))}
+const name=i=>i==0?"cover":i==LAST?"back":"p"+i;
+const parse=()=>{const h=location.hash.slice(1);return h=="back"?LAST:/^p\d+$/.test(h)?Math.min(18,Math.max(1,+h.slice(1))):0};
+function go(n){n=Math.max(0,Math.min(LAST,n));if(n==st)return;st=n;render();try{history.replaceState(null,"","#"+name(n))}catch(e){}}
+$("prev").onclick=()=>go(st-1);$("next").onclick=()=>go(st+1);
+book.onclick=e=>{if(e.target.closest("button"))return;const l=e.target.closest(".lf");if(l)go(l.classList.contains("fl")?st-1:st+1)};
+addEventListener("keydown",e=>{if(e.key=="ArrowLeft")go(st+1);if(e.key=="ArrowRight")go(st-1)});
+let sx=null;
+addEventListener("touchstart",e=>{sx=e.changedTouches[0].clientX},{passive:true});
+addEventListener("touchend",e=>{if(sx===null)return;const d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>60)go(d>0?st+1:st-1)},{passive:true});
+addEventListener("hashchange",()=>{const n=parse();if(n!=st){st=n;render()}});
+mq.addEventListener("change",build);
+st=parse();build();
+</script>
+</body>
+</html>
